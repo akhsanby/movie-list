@@ -244,3 +244,59 @@
     transition: all ease 0.3s;
   }
 }
+
+@media (max-width: 1000px) {
+  .watchBtn {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 750px) {
+  .bannerContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .playBtnContainer {
+    margin-top: 50px;
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .movieBanner {
+    padding: 20px;
+  }
+
+  .movieTitle {
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .titleContainer {
+    justify-content: flex-start;
+  }
+
+  .moreAboutMovie {
+    span {
+      margin-top: 10px;
+      display: flex;
+    }
+    .rating {
+      margin-bottom: -10px;
+    }
+  }
+
+  .titleBottom {
+    margin-top: 30px;
+  }
+
+  .playBtn {
+    width: 50px;
+    height: 50px;
+    a {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

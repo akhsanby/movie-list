@@ -13,16 +13,6 @@ body {
   background-color: #080808;
 }
 
-/* hide default scroll bar */
-body::-webkit-scrollbar {
-  display: none;
-}
-
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 ul {
   list-style: none;
 }

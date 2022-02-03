@@ -11,7 +11,10 @@ import MovieBox from "../components/MovieBox";
 // styles
 import styles from "../styles/SliderContainer.module.scss";
 
-export default function SliderContainer() {
+// config
+import { fetchUpcomingMovies } from "../config/api";
+
+export default function SliderContainer({ upcomingMovies }) {
   return (
     <div className={styles.mainSlider}>
       <Swiper
@@ -40,9 +43,9 @@ export default function SliderContainer() {
         }}
         modules={[Autoplay, Pagination]}
       >
-        {[1, 2, 3, 4, 5, 6].map((el) => (
-          <SwiperSlide key={el}>
-            <MovieBox />
+        {upcomingMovies.results.map((upcomingMovie, index) => (
+          <SwiperSlide key={index}>
+            <MovieBox upcomingMovie={upcomingMovie} />
           </SwiperSlide>
         ))}
       </Swiper>

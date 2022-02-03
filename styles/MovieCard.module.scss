@@ -16,6 +16,38 @@
       object-fit: cover;
     }
   }
+  &:hover {
+    .postBoxOverlay {
+      top: 0;
+      transition: all ease 0.3s;
+    }
+
+    .movieName {
+      span,
+      a {
+        color: #ffffff;
+        z-index: 105;
+      }
+    }
+
+    .category {
+      a {
+        color: #ff0000 !important;
+      }
+    }
+  }
+}
+
+.postBoxOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 100%;
+  background-color: rgba(27, 27, 27, 0.3);
+  color: #ffffff;
+  transition: all ease 0.3s;
+  // z-index: 100;
 }
 
 .mainMovieCardText {
@@ -67,9 +99,8 @@
 }
 
 .categoryRating {
-  display: flex;
+  display: block;
   width: 100%;
-  justify-content: space-between;
   margin-top: 20px;
 }
 
@@ -79,7 +110,9 @@
   font-weight: 500;
   a {
     color: #e70634;
-    margin: 0px 3px;
+    &:not(:last-child)::after {
+      content: ", ";
+    }
   }
 }
 
@@ -92,5 +125,17 @@
     width: 20px;
     object-fit: contain;
     object-position: center;
+  }
+}
+
+@media (max-width: 530px) {
+  .postBox {
+    height: 450px;
+  }
+}
+
+@media (max-width: 480px) {
+  .postBox {
+    height: 500px;
   }
 }

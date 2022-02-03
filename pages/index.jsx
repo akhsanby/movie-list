@@ -6,21 +6,37 @@ import Pagination from "../components/Pagination";
 // styles
 import styles from "../styles/Home.module.scss";
 
-export default function Home() {
+// api
+import { fetchPopularMovies, fetchUpcomingMovies } from "../config/api";
+
+export default function Home({ upcomingMovies, popularMovies }) {
   return (
     <Layout title="Home">
-      <SliderContainer />
-      <section id={styles.latest}>
-        <div className={styles.latestHeading}>
-          <h1>Latest Movies</h1>
+      <SliderContainer upcomingMovies={upcomingMovies} />
+      <section id={styles.popular}>
+        <div className={styles.popularHeading}>
+          <h1>Popular Movies</h1>
         </div>
         <div className={styles.postContainer}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((el) => (
-            <MovieCard key={el} />
+          {popularMovies.results.map((popularMovie, index) => (
+            <MovieCard key={index} popularMovie={popularMovie} />
           ))}
         </div>
       </section>
       <Pagination />
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const [popularMovies, upcomingMovies] = await Promise.all([fetchPopularMovies(), fetchUpcomingMovies()]);
+
+  // Pass data to the page via props
+  return {
+    props: {
+      popularMovies,
+      upcomingMovies,
+    },
+  };
 }

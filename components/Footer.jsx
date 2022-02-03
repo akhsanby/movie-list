@@ -3,13 +3,14 @@ import styles from "../styles/Footer.module.scss";
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      {/* <!-- footer logo --> */}
       <a href="#" className={styles.logo}>
         {" "}
-        Movies<span>hd</span>{" "}
+        99Movies<span>.online</span>{" "}
       </a>
-      {/* <!-- copyright --> */}
-      <span className={styles.copyright}> Copyright 2021 - GoingToInternet </span>
+      <span className={styles.copyright}>
+        {" "}
+        Copyright 2022 - Modified with <i className="fas fa-heart"></i> by Akhsan{" "}
+      </span>
     </footer>
   );
 }

@@ -1,10 +1,10 @@
-#latest {
+#popular {
   max-width: 1170px;
   margin: 30px auto;
   width: 100%;
 }
 
-.latestHeading {
+.popularHeading {
   width: 100%;
   padding: 10px 20px;
   background-color: #0e0e0ec2;
@@ -22,4 +22,34 @@
   grid-gap: 30px;
   gap: 35px;
   margin: 20px 0;
+}
+
+@media (max-width: 1200px) {
+  #latest {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .postContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 824px) {
+  .postContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 530px) {
+  .postContainer {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .postContainer {
+    grid-template-columns: 1fr;
+  }
 }

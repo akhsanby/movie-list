@@ -20,3 +20,17 @@
     object-fit: cover;
   }
 }
+
+@media (max-width: 900px) {
+  .screenshots {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .screenshots {
+    strong {
+      font-size: 1.5rem;
+    }
+  }
+}

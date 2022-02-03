@@ -6,3 +6,9 @@
   max-width: 1170px;
   width: 100%;
 }
+
+@media (max-width: 1200px) {
+  .mainSlider {
+    width: 90%;
+  }
+}

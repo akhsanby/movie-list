@@ -29,3 +29,24 @@
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 824px) {
+  .footer {
+    .logo {
+      font-size: 1.3rem;
+    }
+  }
+
+  .footer {
+    padding: 10px 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 530px) {
+  .footer {
+    .copyright {
+      font-size: 0.8rem;
+    }
+  }
+}

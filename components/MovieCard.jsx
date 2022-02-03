@@ -1,12 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
+import { Fragment } from "react";
+
 // styles
 import styles from "../styles/MovieCard.module.scss";
 
-export default function MovieCard() {
+// config
+import { imageBaseUrl } from "../config/image";
+import { displayGenre, displayYear } from "../config/other";
+
+export default function MovieCard({ popularMovie }) {
   return (
     <div className={styles.postBox}>
+      <a href="#" className={styles.postBoxOverlay}></a>
       <div className={styles.postImg}>
-        <img src="/Images/post-1.jpg" alt="post" />
+        <img src={imageBaseUrl(popularMovie.poster_path)} alt="poster" />
       </div>
 
       <div className={styles.mainMovieCardText}>
@@ -14,17 +21,21 @@ export default function MovieCard() {
 
         <div className={styles.buttonText}>
           <div className={styles.movieName}>
-            <span>2014</span>
-            <a href="#">Paranormal Activity: The Marked Ones</a>
+            <span>{displayYear(popularMovie.release_date)}</span>
+            <a href="#">{popularMovie.title}</a>
           </div>
 
           <div className={styles.categoryRating}>
             <div className={styles.category}>
-              <a href="">Horror</a>, <a href="">Mistery</a>,<a href="">Thriller</a>
+              {popularMovie.genre_ids.map((genre, index) => (
+                <Fragment key={index}>
+                  <a href="">{displayGenre(genre)}</a>
+                </Fragment>
+              ))}
             </div>
 
             <div className={styles.rating}>
-              5.2 <img src="/Images/IMDb-icon.png" alt="imdb" />
+              {popularMovie.vote_average} <img src="/Images/IMDb-icon.png" alt="imdb" />
             </div>
           </div>
         </div>

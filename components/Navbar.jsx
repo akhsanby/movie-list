@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import $ from "jquery";
+import Link from "next/link";
 
 // styles
 import styles from "../styles/Navbar.module.scss";
@@ -29,12 +30,14 @@ export default function Navbar() {
       </label>
 
       <a href="#" className={styles.logo}>
-        Movies<span>.hd</span>{" "}
+        99Movies<span>.online</span>{" "}
       </a>
 
       <ul className={styles.menu}>
         <li>
-          <a href="#">Home</a>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
         </li>
         <li>
           <a href="#">Genre</a>
