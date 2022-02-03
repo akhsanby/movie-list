@@ -1,0 +1,19 @@
+.movieDetails {
+  max-width: 1000px;
+  width: 100%;
+  margin: 30px auto 20px auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  strong {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  p {
+    color: #747474;
+    margin: 10px 0;
+  }
+}

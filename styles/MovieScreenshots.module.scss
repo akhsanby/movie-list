@@ -1,0 +1,22 @@
+.screenshots {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  strong {
+    color: #e70634;
+    font-family: "Monoton", cursive;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+}
+
+.screenshotsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

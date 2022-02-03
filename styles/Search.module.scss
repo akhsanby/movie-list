@@ -1,0 +1,25 @@
+#latest {
+  max-width: 1170px;
+  margin: 30px auto;
+  width: 100%;
+}
+
+.latestHeading {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #0e0e0ec2;
+  border: 1px solid #161616b9;
+  h1 {
+    color: #dadada;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+}
+
+.postContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  gap: 35px;
+  margin: 20px 0;
+}
