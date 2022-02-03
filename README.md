@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Final Project H8
 
-## Getting Started
+is a simple App to show Movies List From 3rd Parties Data.
+Please note this requirements as well as your final project appraisal.
 
-First, run the development server:
+1. Using create-react-app
+2. Get Movies from http://www.omdbapi.com/ Get API_KEY from http://www.omdbapi.com/apikey.aspx using fetch or axios allowed.
+3. Simplied your react state into functional component using react-hooks applied (UseState, useEffect, useReducer).
+4. Functional Component Based, details
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- App.js — It will be the parent component for the other 3. It will also contain the function that handles the API request and it will have a function that calls the API during the component’s initial render.
+- Header.js — A simple component that renders the app header and accepts a title prop
+- Movie.js — It renders each movie. The movie object is simply passed into it as props.
+- Search.js — Contains a form with the input element and the search button, contains functions that handle the input element and resets the field, and also contains a function that calls the search function which is passed as props to it.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+It must be simple, so you must be careful with your syntax or code.Be Sure your app is suitable with the requirement above, because we do check your code/syntax with the requirement applied. So MAKE IT PERFECT !
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Tools
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. NextJS (React Framework)
+2. SASS
+3. jQuery
+4. Swiper
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Public API
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+https://api.themoviedb.org/3
