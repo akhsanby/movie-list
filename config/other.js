@@ -87,3 +87,17 @@ export function displayYear(date) {
   const d = new Date(date);
   return d.getFullYear();
 }
+
+export function displayDate(date) {
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  const d = new Date(date);
+  return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+export function convertToSlug(text) {
+  return text
+    .toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
+}
