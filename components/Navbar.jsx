@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import $ from "jquery";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 // styles
 import styles from "../styles/Navbar.module.scss";
 
 export default function Navbar() {
+  const router = useRouter();
+  const [searchKeyword, setsearchKeyword] = useState("");
   const [menuFixed, setMenuFixed] = useState(false);
 
   const handleMenuIcon = () => {
@@ -18,6 +21,14 @@ export default function Navbar() {
     });
   };
 
+  async function handleSearch(event) {
+    event.preventDefault();
+    router.push({
+      pathname: "/search",
+      query: { keyword: searchKeyword },
+    });
+  }
+
   useEffect(() => {
     handleMenuIcon();
   });
@@ -29,9 +40,11 @@ export default function Navbar() {
         <span></span>
       </label>
 
-      <a href="#" className={styles.logo}>
-        99Movies<span>.online</span>{" "}
-      </a>
+      <Link href="/">
+        <a className={styles.logo}>
+          99Movies<span>.online</span>{" "}
+        </a>
+      </Link>
 
       <ul className={styles.menu}>
         <li>
@@ -53,8 +66,8 @@ export default function Navbar() {
         </li>
       </ul>
 
-      <form className={styles.searchBox}>
-        <input type="text" name="search" placeholder="Search movie" className={styles.searchInput} />
+      <form className={styles.searchBox} onSubmit={handleSearch}>
+        <input type="text" onChange={(e) => setsearchKeyword(e.target.value)} placeholder="Search movie" className={styles.searchInput} />
         <button type="submit">
           <i className="fas fa-search"></i>
         </button>
