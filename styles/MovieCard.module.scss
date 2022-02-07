@@ -64,17 +64,22 @@
   padding: 25px;
 }
 
-.quality {
+.rating {
   background-color: #e70634;
-  color: #080808;
+  color: #ffffff;
   font-weight: 600;
-  padding: 0px 5px;
-  height: 20px;
+  padding: 0px 8px;
+  height: 21px;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.3rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  i {
+    color: #fcbb23;
+    font-size: 0.8rem;
+  }
 }
 
 .movieName {
@@ -98,33 +103,15 @@
   }
 }
 
-.categoryRating {
-  display: block;
-  width: 100%;
-  margin-top: 20px;
-}
-
 .category {
   color: #969696;
   font-size: 0.8rem;
   font-weight: 500;
-  a {
+  span {
     color: #e70634;
     &:not(:last-child)::after {
       content: ", ";
     }
-  }
-}
-
-.rating {
-  font-size: 0.8rem;
-  color: #ffffff;
-  letter-spacing: 1px;
-  img {
-    height: 10px;
-    width: 20px;
-    object-fit: contain;
-    object-position: center;
   }
 }
 
