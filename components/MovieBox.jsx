@@ -1,39 +1,55 @@
 /* eslint-disable @next/next/no-img-element */
 import { Fragment } from "react";
+import Link from "next/link";
 
 // styles
 import styles from "../styles/MovieBox.module.scss";
 
 // config
 import { imageBaseUrl } from "../config/image";
-import { displayGenre, displayYear } from "../config/other";
+import { displayGenre, displayYear, convertToSlug } from "../config/other";
 
 export default function MovieBox({ upcomingMovie }) {
+  const voteRating = () => {
+    if (upcomingMovie.vote_average === 0) {
+      return "unrated";
+    } else {
+      return upcomingMovie.vote_average;
+    }
+  };
+
   return (
     <div className={styles.mainSliderBox}>
-      <a href="#" className={styles.mainSliderOverlay}></a>
+      <div className={styles.mainSliderOverlay}></div>
       <div className={styles.mainSliderImg}>
         <img src={imageBaseUrl(upcomingMovie.poster_path)} alt="Poster" />
       </div>
 
       <div className={styles.mainSliderText}>
-        <span className={styles.quality}>Full HD</span>
+        <div className={styles.rating}>
+          <i className="fas fa-star"></i>
+          <span>{voteRating()}</span>
+        </div>
         <div className={styles.buttonText}>
           <div className={styles.movieName}>
             <span>{displayYear(upcomingMovie.release_date)}</span>
-            <strong>{upcomingMovie.title}</strong>
+            <Link
+              href={{
+                pathname: "/[detail]",
+                query: { id: upcomingMovie.id },
+              }}
+              as={`${convertToSlug(upcomingMovie.title)}-${displayYear(upcomingMovie.release_date)}`}
+              passHref
+            >
+              {upcomingMovie.title}
+            </Link>
           </div>
-          <div className={styles.categoryRating}>
-            <div className={styles.category}>
-              {upcomingMovie.genre_ids.map((genre, index) => (
-                <Fragment key={index}>
-                  <a href="">{displayGenre(genre)}</a>
-                </Fragment>
-              ))}
-            </div>
-            <div className={styles.rating}>
-              {upcomingMovie.vote_average} <img src="/Images/IMDb-icon.png" alt="imdb" />
-            </div>
+          <div className={styles.category}>
+            {upcomingMovie.genre_ids.map((genre, index) => (
+              <Fragment key={index}>
+                <span>{displayGenre(genre)}</span>
+              </Fragment>
+            ))}
           </div>
         </div>
       </div>

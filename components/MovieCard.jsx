@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { Fragment } from "react";
+import Link from "next/link";
 
 // styles
 import styles from "../styles/MovieCard.module.scss";
 
 // config
 import { imageBaseUrl } from "../config/image";
-import { displayGenre, displayYear } from "../config/other";
+import { displayGenre, displayYear, convertToSlug } from "../config/other";
 
 export default function MovieCard({ popularMovie }) {
   return (
@@ -17,26 +18,32 @@ export default function MovieCard({ popularMovie }) {
       </div>
 
       <div className={styles.mainMovieCardText}>
-        <span className={styles.quality}>Full HD</span>
+        <div className={styles.rating}>
+          <i className="fas fa-star"></i>
+          <span>{popularMovie.vote_average}</span>
+        </div>
 
         <div className={styles.buttonText}>
           <div className={styles.movieName}>
             <span>{displayYear(popularMovie.release_date)}</span>
-            <a href="#">{popularMovie.title}</a>
+            <Link
+              href={{
+                pathname: "/[detail]",
+                query: { id: popularMovie.id },
+              }}
+              as={`${convertToSlug(popularMovie.title)}-${displayYear(popularMovie.release_date)}`}
+              passHref
+            >
+              {popularMovie.title}
+            </Link>
           </div>
 
-          <div className={styles.categoryRating}>
-            <div className={styles.category}>
-              {popularMovie.genre_ids.map((genre, index) => (
-                <Fragment key={index}>
-                  <a href="">{displayGenre(genre)}</a>
-                </Fragment>
-              ))}
-            </div>
-
-            <div className={styles.rating}>
-              {popularMovie.vote_average} <img src="/Images/IMDb-icon.png" alt="imdb" />
-            </div>
+          <div className={styles.category}>
+            {popularMovie.genre_ids.map((genre, index) => (
+              <Fragment key={index}>
+                <span>{displayGenre(genre)}</span>
+              </Fragment>
+            ))}
           </div>
         </div>
       </div>

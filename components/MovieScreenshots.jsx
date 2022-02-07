@@ -1,15 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
+import { Fragment } from "react";
+
+// config
+import { imageBaseUrl } from "../config/image";
+
+// styles
 import styles from "../styles/MovieScreenshots.module.scss";
 
-export default function MovieScreenshots() {
+export default function MovieScreenshots({ images }) {
   return (
     <section className={styles.screenshots}>
       <strong>Screenshots</strong>
       <div className={styles.screenshotsContainer}>
-        <img src="/Movie-Data/Pirates-of-the-Caribbean-Salazar's-Revenge/screenshot-1.jpg" alt="ss1" />
-        <img src="/Movie-Data/Pirates-of-the-Caribbean-Salazar's-Revenge/screenshot-2.jpg" alt="ss2" />
-        <img src="/Movie-Data/Pirates-of-the-Caribbean-Salazar's-Revenge/screenshot-3.jpg" alt="ss3" />
-        <img src="/Movie-Data/Pirates-of-the-Caribbean-Salazar's-Revenge/screenshot-4.jpg" alt="ss4" />
+        {images.backdrops.splice(0, 4).map((image, index) => (
+          <Fragment key={index}>
+            <img src={imageBaseUrl(image.file_path)} alt="ss1" />
+          </Fragment>
+        ))}
       </div>
     </section>
   );
