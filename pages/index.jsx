@@ -1,3 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
+// components
 import Layout from "../components/Layout";
 import SliderContainer from "../components/SliderContainer";
 import MovieCard from "../components/MovieCard";
@@ -10,6 +15,16 @@ import styles from "../styles/Home.module.scss";
 import { fetchPopularMovies, fetchUpcomingMovies } from "../config/api";
 
 export default function Home({ upcomingMovies, popularMovies }) {
+  const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    router.replace({
+      pathname: "/",
+      query: { page: currentPage },
+    });
+  }, [currentPage]);
+
   return (
     <Layout title="Home">
       <SliderContainer upcomingMovies={upcomingMovies} />
@@ -23,14 +38,15 @@ export default function Home({ upcomingMovies, popularMovies }) {
           ))}
         </div>
       </section>
-      <Pagination />
+      <Pagination movies={popularMovies} currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </Layout>
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const currentPage = context.query.page;
   // Fetch data from external API
-  const [popularMovies, upcomingMovies] = await Promise.all([fetchPopularMovies(), fetchUpcomingMovies()]);
+  const [popularMovies, upcomingMovies] = await Promise.all([fetchPopularMovies(currentPage), fetchUpcomingMovies()]);
 
   // Pass data to the page via props
   return {
