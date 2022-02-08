@@ -1,13 +1,17 @@
-import NextNprogress from "nextjs-progressbar";
+import { Router } from "next/router";
+import NProgress from "nprogress";
+
+// global style
 import "../styles/globals.scss";
+import "nprogress/nprogress.css";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <NextNprogress color="#e70634" startPosition={0.3} stopDelayMs={200} height={2} showOnShallow={true} />
-      <Component {...pageProps} />
-    </>
-  );
+  NProgress.configure({ showSpinner: false });
+  Router.events.on("routeChangeStart", () => NProgress.start());
+  Router.events.on("routeChangeComplete", () => NProgress.done());
+  Router.events.on("routeChangeError", () => NProgress.done());
+
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
