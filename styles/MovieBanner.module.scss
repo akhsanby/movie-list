@@ -128,7 +128,8 @@
       font-weight: 500;
       color: #ffffff;
     }
-    a {
+    a,
+    span {
       color: #e70634;
       font-size: 1rem;
       margin-right: 5px;
@@ -159,110 +160,27 @@
   }
 }
 
-.playBtnContainer {
+.watchBtnDisabled {
+  width: 220px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  width: 100%;
-  max-width: 500px;
-}
-
-.playBtn {
-  width: 65px;
-  height: 65px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 1px solid #dadada48;
-  z-index: 3;
-  background-color: rgba(255, 0, 0, 0.2);
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    width: 180%;
-    height: 180%;
-    border: 1px solid #ffffff26;
-    background-color: #ffffff18;
-    z-index: -1;
-  }
-  a {
-    width: 65px;
-    height: 65px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: all ease 0.3s;
-    &:hover {
-      background-color: #e70634;
-      transition: all ease 0.3s;
-    }
-  }
-  i {
-    color: #ffffff;
-  }
-}
-
-.play {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(15, 15, 15, 0.7);
-  z-index: 108;
-  display: none;
-}
-
-.playMovie {
-  width: 80%;
-  video,
-  iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 108;
-  }
-}
-
-.closeMovie {
-  position: fixed;
-  right: 60px;
-  top: 60px;
-  font-size: 2rem;
-  color: #e70634;
+  background-color: #ffffff09;
+  border: 1px solid #ffffff2c;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #ccc;
+  letter-spacing: 1px;
   transition: all ease 0.3s;
-  &:hover {
-    opacity: 0.6;
-    transition: all ease 0.3s;
-  }
+  pointer-events: none;
 }
 
 @media (max-width: 1000px) {
-  .watchBtn {
+  .watchBtn,
+  .watchBtnDisabled {
     margin-top: 20px;
-  }
-}
-
-@media (max-width: 750px) {
-  .bannerContainer {
-    grid-template-columns: 1fr;
-  }
-
-  .playBtnContainer {
-    margin-top: 50px;
-    display: flex;
   }
 }
 
@@ -293,14 +211,5 @@
 
   .titleBottom {
     margin-top: 30px;
-  }
-
-  .playBtn {
-    width: 50px;
-    height: 50px;
-    a {
-      width: 50px;
-      height: 50px;
-    }
   }
 }

@@ -12,7 +12,7 @@ export default function MovieScreenshots({ images }) {
     <section className={styles.screenshots}>
       <strong>Screenshots</strong>
       <div className={styles.screenshotsContainer}>
-        {images.backdrops.splice(0, 4).map((image, index) => (
+        {images.backdrops.splice(1, 6).map((image, index) => (
           <Fragment key={index}>
             <img src={imageBaseUrl(image.file_path)} alt="ss1" />
           </Fragment>

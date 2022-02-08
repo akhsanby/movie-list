@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import $ from "jquery";
 
 // styles
 import styles from "../styles/ProgressBar.module.scss";
@@ -17,13 +18,22 @@ export default function ProgressBar() {
     window.onload = scrollPercentage;
   };
 
+  function scrollToTop() {
+    $("#progress-value").on("click", function () {
+      $("html, body").animate({ scrollTop: 0 }, 1000);
+    });
+  }
+
   useEffect(() => {
     handleProgressBar();
+    scrollToTop();
   });
 
   return (
     <div className={styles.progress} id="progress">
-      <span className={styles.progressValue} id="progress-value"></span>
+      <span className={styles.progressValue} id="progress-value">
+        <i className="fas fa-chevron-up"></i>
+      </span>
     </div>
   );
 }

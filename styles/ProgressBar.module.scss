@@ -20,5 +20,9 @@
   display: grid;
   place-items: center;
   font-weight: 600;
-  font-size: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  i {
+    color: #e70634;
+  }
 }
