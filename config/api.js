@@ -3,10 +3,9 @@ const firstParameter = ["movie", "search"];
 const secondParameter = ["popular", "upcoming", "movie"];
 const apiKey = "ee4cefe9990dc2b171852cb4023bab21";
 const language = ["en-US"];
-const page = ["1"];
 
-export async function fetchPopularMovies() {
-  const response = await fetch(`${baseUrl}/${firstParameter[0]}/${secondParameter[0]}?api_key=${apiKey}`);
+export async function fetchPopularMovies(page = 1) {
+  const response = await fetch(`${baseUrl}/${firstParameter[0]}/${secondParameter[0]}?api_key=${apiKey}&language=${language[0]}&page=${page}`);
   return await response.json();
 }
 
@@ -16,12 +15,7 @@ export async function fetchUpcomingMovies() {
 }
 
 export async function fetchMoviesById(movieId) {
-  const response = await fetch(`${baseUrl}/${firstParameter[0]}/${movieId}?api_key=${apiKey}`);
-  return await response.json();
-}
-
-export async function fetchMovieImagesById(movieId) {
-  const response = await fetch(`${baseUrl}/${firstParameter[0]}/${movieId}/images?api_key=${apiKey}`);
+  const response = await fetch(`${baseUrl}/${firstParameter[0]}/${movieId}?api_key=${apiKey}&append_to_response=videos,images,credits`);
   return await response.json();
 }
 
