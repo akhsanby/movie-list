@@ -31,3 +31,27 @@ a {
   background: var(--swiper-pagination-color, var(--swiper-theme-color)) !important;
   background-color: #e70634 !important;
 }
+
+.active-popup {
+  display: flex !important;
+}
+
+#nprogress {
+  .bar {
+    background: #e70634 !important;
+    height: 3px !important;
+  }
+  .peg {
+    box-shadow: 0 0 10px #e70634, 0 0 5px #e70634 !important;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 2rem !important;
+}

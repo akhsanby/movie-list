@@ -31,3 +31,25 @@
     }
   }
 }
+
+@media (max-width: 900px) {
+  .credits {
+    width: 90%;
+  }
+
+  .castContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .credits {
+    strong {
+      font-size: 1.5rem;
+    }
+  }
+
+  .castContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
