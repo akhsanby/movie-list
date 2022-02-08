@@ -1,6 +1,5 @@
 import Layout from "../components/Layout";
 import MovieCard from "../components/MovieCard";
-import Pagination from "../components/Pagination";
 
 // styles
 import styles from "../styles/Search.module.scss";
@@ -21,7 +20,6 @@ export default function Search({ keyword, movieData }) {
           ))}
         </div>
       </section>
-      <Pagination />
     </Layout>
   );
 }
